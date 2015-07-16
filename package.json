@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:crealogix/highcharts-commonjs.git"
+    "url": "git@github.com:TrexinanF14/highcharts-more-commonjs.git"
   },
   "keywords": [
     "highcharts"
   ],
   "license": "www.highcharts.com/license",
   "bugs": {
-    "url": "https://github.com/crealogix/highcharts-commonjs/issues"
+    "url": "https://github.com/TrexinanF14/highcharts-more-commonjs/issues"
   },
-  "homepage": "https://github.com/crealogix/highcharts-commonjs"
+  "homepage": "https://github.com/TrexinanF14/highcharts-more-commonjs"
 }
