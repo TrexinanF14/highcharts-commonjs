@@ -1,6 +1,7 @@
 'use strict';
 
 var Highcharts = require('./src/highcharts.src.js');
+require('imports?Highcharts=./highcharts.src.js!./src/highcharts-more.src.js');
 
 module.exports = {
   createChart: function(div, options, callback) {
