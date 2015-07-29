@@ -1,5 +1,7 @@
 # Highcharts Wrapper for CommonJS
 
+This fork includes highcharts-more and exporting.js.
+
 ### Example Usage
 ```javascript
 'use strict';

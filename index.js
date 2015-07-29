@@ -2,6 +2,7 @@
 
 var Highcharts = require('./src/highcharts.src.js');
 require('imports?Highcharts=./highcharts.src.js!./src/highcharts-more.src.js');
+require('imports?Highcarts=./highcharts.src.js!./src/exporting.js');
 
 module.exports = {
   createChart: function(div, options, callback) {
