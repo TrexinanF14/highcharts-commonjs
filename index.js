@@ -28,6 +28,7 @@ Highcharts.getSVG = function(charts, exportSettings) {
 }
 
 module.exports = {
+	Highcharts: Highcharts,
 	createChart: function(div, options, callback) {
 		options.chart = options.chart || {};
 		options.chart.renderTo = div;
