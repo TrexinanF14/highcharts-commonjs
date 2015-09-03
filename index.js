@@ -7,7 +7,7 @@ require('imports?Highcharts=./highcharts.src.js,HighchartsAdapter=./HighchartsAd
 /**
 * Create a global getSVG method that takes an array of charts as an argument
 */
-Highcharts.Highcharts.getSVG = function(charts) {
+Highcharts.getSVG = function(charts) {
 	var svgArr = [],
 	top = 0,
 	width = 0;
@@ -41,13 +41,13 @@ module.exports = {
 	*/
 	exportCharts: function(charts, options) {
 		var form;
-		var svg = Highcharts.Highcharts.getSVG(charts);
+		var svg = Highcharts.getSVG(charts);
 
 		// merge the options
-		options = Highcharts.Highcharts.merge(Highcharts.Highcharts.getOptions().exporting, options);
+		options = Highcharts.merge(Highcharts.getOptions().exporting, options);
 
 		// create the form
-		form = Highcharts.Highcharts.createElement('form', {
+		form = Highcharts.createElement('form', {
 				method: 'post',
 				action: options.url
 			}, {
@@ -55,8 +55,8 @@ module.exports = {
 		}, document.body);
 
 		// add the values
-		Highcharts.Highcharts.each(['filename', 'type', 'width', 'svg'], function(name) {
-			Highcharts.Highcharts.createElement('input', {
+		Highcharts.each(['filename', 'type', 'width', 'svg'], function(name) {
+			Highcharts.createElement('input', {
 				type: 'hidden',
 				name: name,
 				value: {
