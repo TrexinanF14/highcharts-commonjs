@@ -7,18 +7,19 @@ require('imports?Highcharts=./highcharts.src.js,HighchartsAdapter=./HighchartsAd
 /**
 * Create a global getSVG method that takes an array of charts as an argument
 */
-Highcharts.getSVG = function(charts) {
-	var svgArr = [],
-	top = 0,
-	width = 0;
+Highcharts.getSVG = function(charts, exportSettings) {
+	var svgArr = [];
 
+	var top = 0;
+	var width = 0;
+	
 	$.each(charts, function(i, chart) {
-		var svg = chart.getSVG();
+		var svg = chart.getSVG({chart: {width: exportSettings[i].width, height: (exportSettings[i].sourceHeight * 2)}});
 		svg = svg.replace('<svg', '<g transform="translate(0,' + top + ')" ');
 		svg = svg.replace('</svg>', '</g>');
 
-		top += chart.chartHeight;
-		width = Math.max(width, chart.chartWidth);
+		top += exportSettings[i].sourceHeight;
+		width = Math.max(width, exportSettings[i].width);
 
 		svgArr.push(svg);
 	});
@@ -40,12 +41,16 @@ module.exports = {
 	* and exporting options as the second argument
 	*/
 	exportCharts: function(charts, options) {
+		var exportSettings = charts.map(function(chart) {
+			return chart.options.exporting;
+		});
+		
 		var form;
-		var svg = Highcharts.getSVG(charts);
+		var svg = Highcharts.getSVG(charts, exportSettings);
 
 		// merge the options
-		options = Highcharts.merge(Highcharts.getOptions().exporting, options);
-
+		options = exportSettings[0];
+		
 		// create the form
 		form = Highcharts.createElement('form', {
 				method: 'post',
