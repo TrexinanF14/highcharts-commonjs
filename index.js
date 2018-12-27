@@ -1,8 +1,8 @@
 'use strict';
 
 var Highcharts = require('./src/highcharts.src.js');
-require('imports?Highcharts=./highcharts.src.js!./src/highcharts-more.src.js');
-require('imports?Highcharts=./highcharts.src.js,HighchartsAdapter=./HighchartsAdapter.js!./src/exporting.js');
+require('imports-loader?Highcharts=./highcharts.src.js!./src/highcharts-more.src.js');
+require('imports-loader?Highcharts=./highcharts.src.js,HighchartsAdapter=./HighchartsAdapter.js!./src/exporting.js');
 
 /**
 * Create a global getSVG method that takes an array of charts as an argument
